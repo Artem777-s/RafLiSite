@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Профиль питомца — RafLi</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="logo"><a href="index.html"><img src="assets/logo.svg" alt="RafLi logo" class="logo-img"></a></div>
+      <nav class="nav">
+        <a class="nav-link" href="index.html">Главная</a>
+        <a class="nav-link" href="register.html">Регистрация питомца</a>
+        <a class="nav-button" href="shop.html">Магазин</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section id="petProfile" class="auth-card">
+      <h2 id="petTitle">Профиль питомца</h2>
+      <div id="petContent"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© <span id="year3"></span> RafLi</p>
+    </div>
+  </footer>
+
+  <script>
+    function b64ToStr(b64){ try { return decodeURIComponent(escape(atob(b64))); } catch(e){ return null; } }
+    function qsParam(name){ const params=new URLSearchParams(location.search); return params.get(name); }
+    const dataB64 = qsParam('data');
+    const container = document.getElementById('petContent');
+    const title = document.getElementById('petTitle');
+    if(!dataB64){ container.innerHTML = '<p class="muted">Данные питомца не найдены. Проверьте ссылку.</p>'; }
+    else {
+      const jsonStr = b64ToStr(dataB64);
+      try{
+        const pet = JSON.parse(jsonStr);
+        title.textContent = pet.name ? (pet.name + ' — профиль питомца') : 'Профиль питомца';
+        const html = `
+          <p><strong>Кличка:</strong> ${pet.name || '-'}</p>
+          <p><strong>Порода:</strong> ${pet.breed || '-'}</p>
+          <p><strong>Возраст / ДР:</strong> ${pet.age || '-'} ${pet.dob ? '('+pet.dob+')' : ''}</p>
+          <p><strong>Чип / клеймо:</strong> ${pet.chip || '-'}</p>
+          <p><strong>Город:</strong> ${pet.city || '-'}</p>
+          <p><strong>Контакты владельца:</strong> ${pet.owner || '-'}</p>
+          <p><strong>Вет-данные:</strong> ${pet.vet || '-'}</p>
+          <p><strong>Корм:</strong> ${pet.food || '-'}</p>
+          <p><strong>Характер:</strong> ${pet.notes || '-'}</p>
+        `;
+        container.innerHTML = html;
+      } catch(e){
+        container.innerHTML = '<p class="muted">Ошибка при чтении данных питомца.</p>';
+      }
+    }
+  </script>
+</body>
+</html>

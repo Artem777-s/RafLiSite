@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Магазин RafLi</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="logo"><a href="index.html"><img src="assets/logo.svg" alt="RafLi logo" class="logo-img"></a></div>
+      <nav class="nav">
+        <a class="nav-link" href="register.html">Регистрация питомца</a>
+        <a class="nav-link" href="index.html">Главная</a>
+        <a class="nav-button" href="shop.html">Магазин</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="shop-intro">
+      <h1>Магазин RafLi</h1>
+      <p class="lead">Премиальные товары для комфортных путешествий ваших питомцев.</p>
+    </section>
+
+    <section class="shop-grid" id="productsGrid">
+      <!-- Товары будут подгружаться через app.js -->
+    </section>
+
+    <section class="admin-panel container">
+      <h2>Панель администратора — добавить товар</h2>
+      <p class="muted">Войдите как админ (admin@rafli.test / admin123), чтобы увидеть панель добавления</p>
+
+      <form id="productForm" class="hidden">
+        <label> Название товара
+          <input id="pName" required />
+        </label>
+        <label> Цена
+          <input id="pPrice" required />
+        </label>
+        <label> Краткое описание
+          <textarea id="pDesc"></textarea>
+        </label>
+        <label> Путь к изображению (например: images/product1.jpg)
+          <input id="pImage" placeholder="images/product1.jpg" />
+        </label>
+        <button class="btn primary" type="submit">Добавить товар</button>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© <span id="year3"></span> RafLi</p>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

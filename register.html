@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Регистрация питомца — RafLi</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="logo"><a href="index.html"><img src="assets/logo.svg" alt="RafLi logo" class="logo-img"></a></div>
+      <nav class="nav">
+        <a class="nav-link" href="index.html">Главная</a>
+        <a class="nav-link" href="register.html">Регистрация питомца</a>
+        <a class="nav-button" href="shop.html">Магазин</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="account">
+      <div class="auth-card">
+        <h2>Создать карточку питомца</h2>
+        <p>Заполните поля — и мы сгенерируем страницу питомца и QR‑код, который может отсканировать любой.</p>
+        <form id="petForm">
+          <label> Кличка
+            <input type="text" id="petName" required>
+          </label>
+          <label> Порода
+            <input type="text" id="petBreed">
+          </label>
+          <label> Возраст
+            <input type="text" id="petAge">
+          </label>
+          <label> Дата рождения
+            <input type="date" id="petDob">
+          </label>
+          <label> Чип / клеймо (номер)
+            <input type="text" id="petChip">
+          </label>
+          <label> ФИО и контакты владельца
+            <input type="text" id="ownerInfo">
+          </label>
+          <label> Город проживания
+            <input type="text" id="petCity">
+          </label>
+          <label> Вет‑данные (вакцинации, обработки, аллергии)
+            <textarea id="petVet"></textarea>
+          </label>
+          <label> Корм
+            <input type="text" id="petFood">
+          </label>
+          <label> Характер и особенности
+            <textarea id="petNotes"></textarea>
+          </label>
+
+          <div class="form-actions">
+            <button class="btn primary" type="submit">Создать карточку и QR</button>
+          </div>
+        </form>
+
+        <div id="result" class="hidden auth-card">
+          <h3>Карточка создана</h3>
+          <p>Скопируйте ссылку или скачайте QR‑картинку — любой человек сможет открыть страницу питомца по этой ссылке.</p>
+          <p><strong>Ссылка:</strong> <a id="petLink" target="_blank" rel="noopener noreferrer"></a></p>
+          <div id="qrWrap">
+            <img id="qrImg" alt="QR питомца">
+          </div>
+          <p><button id="downloadQr" class="btn secondary">Скачать QR</button></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© <span id="year2"></span> RafLi</p>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

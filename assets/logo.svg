@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="48" viewBox="0 0 200 48" fill="none">
+<rect width="200" height="48" rx="8" fill="transparent"/>
+<g transform="translate(6,4)">
+  <circle cx="18" cy="18" r="8" fill="#FF6B35"/>
+  <path d="M9 8c2-6 12-6 14 0 2 6-10 12-14 0z" fill="#FF6B35" transform="translate(0,-4)"/>
+  <text x="44" y="26" font-family="Playfair Display, serif" font-size="20" fill="#8C6A43">RafLi</text>
+</g>
+</svg>
